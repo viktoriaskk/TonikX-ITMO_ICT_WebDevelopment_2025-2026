@@ -1,0 +1,1669 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Документация по лабораторным работам по Web-программированию">
+      
+      
+        <meta name="author" content="Скоблилова Виктория">
+      
+      
+        <link rel="canonical" href="https://viktoriaskk.github.io/TonikX-ITMO_ICT_WebDevelopment_2025-2026/lr2/business-logic/">
+      
+      
+        <link rel="prev" href="../models/">
+      
+      
+        <link rel="next" href="../views/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Бизнес-логика - Лабораторные работы по веб-программированию</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#-" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Лабораторные работы по веб-программированию" class="md-header__button md-logo" aria-label="Лабораторные работы по веб-программированию" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Лабораторные работы по веб-программированию
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Бизнес-логика
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lr1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Лабораторная работа 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Лабораторная работа 2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lr3/" class="md-tabs__link">
+          
+  
+  
+  Лабораторная работа 3
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lr4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Лабораторная работа 4
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Лабораторные работы по веб-программированию" class="md-nav__button md-logo" aria-label="Лабораторные работы по веб-программированию" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Лабораторные работы по веб-программированию
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lr1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторная работа 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторная работа 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторная работа 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура проекта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Модели данных
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бизнес-логика
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бизнес-логика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Введение
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Регистрация и профили пользователей
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Регистрация и профили пользователей">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Создание нового пользователя
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обязательное заполнение профиля
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление гонками
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Управление гонками">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Видимость гонок
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Поиск и фильтрация гонок
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сортировка
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Регистрация на гонки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Регистрация на гонки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Процесс регистрации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Уникальность регистрации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Отмена регистрации
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Заезды и результаты
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Заезды и результаты">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Создание заездов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Добавление результатов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Уникальность результатов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Отображение результатов
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Комментарии
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Комментарии">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Добавление комментария
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Редактирование и удаление
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Права доступа
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Права доступа">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loginrequiredmixin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LoginRequiredMixin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Разделение прав админов и пользователей
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пагинация
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Оптимизация запросов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Оптимизация запросов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#select_related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        select_related
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefetch_related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prefetch_related
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annotate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        annotate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сообщения пользователю
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Итоги
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../views/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Представления и шаблоны
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Инструкция по запуску
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выводы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторная работа 3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторная работа 3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lr3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Описание
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lr3/pr1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практическая работа 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lr3/pr2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практическая работа 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lr3/lr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторная работа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lr4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторная работа 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="-">Бизнес-логика<a class="headerlink" href="#-" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Введение<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Бизнес-логика - это правила и алгоритмы, которые определяют, как работает приложение. В этом разделе я опишу основные процессы и проверки, которые реализованы в проекте.</p>
+<h2 id="_2">Регистрация и профили пользователей<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">Создание нового пользователя<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Когда кто-то регистрируется на сайте, происходит следующее:</p>
+<ol>
+<li>Пользователь заполняет форму регистрации (имя пользователя, email, пароль)</li>
+<li>Django создает объект <code>User</code> в базе данных</li>
+<li>Автоматически срабатывает сигнал <code>post_save</code></li>
+<li>Создается пустой профиль <code>DriverProfile</code> с пустым полем <code>full_name</code></li>
+<li>Пользователь перенаправляется на страницу заполнения профиля</li>
+</ol>
+<p><strong>Код сигнала:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nd">@receiver</span><span class="p">(</span><span class="n">post_save</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="n">User</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_or_update_driver_profile</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">created</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">created</span><span class="p">:</span>
+        <span class="n">DriverProfile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">instance</span><span class="p">,</span> <span class="n">full_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="_4">Обязательное заполнение профиля<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Пользователь не может участвовать в гонках, пока не заполнит профиль. Проверка происходит в нескольких местах:</p>
+<p><strong>1. При попытке зарегистрироваться на гонку:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="ow">not</span> <span class="n">driver_profile</span><span class="o">.</span><span class="n">full_name</span> <span class="ow">or</span> <span class="n">driver_profile</span><span class="o">.</span><span class="n">full_name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">messages</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Для регистрации на гонку сначала заполните свой профиль&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;driverprofile_update&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>2. При попытке добавить комментарий:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">driver_profile</span><span class="o">.</span><span class="n">full_name</span><span class="p">:</span>
+    <span class="n">messages</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Для добавления комментария сначала заполните свой профиль&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;driverprofile_update&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>3. При просмотре профиля:</strong></p>
+<p>Если <code>full_name</code> пустой, пользователя сразу перенаправляют на редактирование:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">profile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_object</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">profile</span><span class="o">.</span><span class="n">full_name</span> <span class="ow">or</span> <span class="n">profile</span><span class="o">.</span><span class="n">full_name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Пожалуйста, заполните свой профиль&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;driverprofile_update&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="_5">Управление гонками<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">Видимость гонок<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Обычные пользователи видят только опубликованные гонки:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Race</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_published</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># ...</span>
+</code></pre></div>
+
+<p>Администраторы через админ-панель видят все гонки и могут их публиковать или скрывать.</p>
+<h3 id="_7">Поиск и фильтрация гонок<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>Пользователи могут искать гонки по:</p>
+<ul>
+<li>Названию</li>
+<li>Месту проведения</li>
+<li>Описанию</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="n">search_query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">search_query</span><span class="p">:</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+        <span class="n">Q</span><span class="p">(</span><span class="n">title__icontains</span><span class="o">=</span><span class="n">search_query</span><span class="p">)</span> <span class="o">|</span>
+        <span class="n">Q</span><span class="p">(</span><span class="n">location__icontains</span><span class="o">=</span><span class="n">search_query</span><span class="p">)</span> <span class="o">|</span>
+        <span class="n">Q</span><span class="p">(</span><span class="n">description__icontains</span><span class="o">=</span><span class="n">search_query</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div>
+
+<p><code>Q</code> объекты позволяют делать сложные запросы с условием "ИЛИ".</p>
+<h3 id="_8">Сортировка<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>Доступны варианты сортировки:</p>
+<ul>
+<li>По дате (новые/старые)</li>
+<li>По названию (А-Я / Я-А)</li>
+<li>По месту проведения</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="n">sort_by</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sort&#39;</span><span class="p">,</span> <span class="s1">&#39;-date&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">sort_by</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;-date&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;-title&#39;</span><span class="p">,</span> <span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="s1">&#39;-location&#39;</span><span class="p">]:</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">sort_by</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Знак минус перед полем означает обратную сортировку.</p>
+<h2 id="_9">Регистрация на гонки<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10">Процесс регистрации<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Пользователь открывает страницу гонки</li>
+<li>Проверяется, заполнен ли профиль</li>
+<li>Проверяется, не зарегистрирован ли уже</li>
+<li>Если все ок, пользователь может зарегистрироваться</li>
+</ol>
+<p><strong>Код проверки:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Проверка профиля</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">driver_profile</span><span class="o">.</span><span class="n">full_name</span> <span class="ow">or</span> <span class="n">driver_profile</span><span class="o">.</span><span class="n">full_name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">messages</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Для регистрации на гонку сначала заполните профиль&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;driverprofile_update&#39;</span><span class="p">)</span>
+
+<span class="c1"># Проверка существующей регистрации</span>
+<span class="n">existing_registration</span> <span class="o">=</span> <span class="n">Registration</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="n">driver</span><span class="o">=</span><span class="n">driver_profile</span><span class="p">,</span>
+    <span class="n">race</span><span class="o">=</span><span class="n">race</span><span class="p">,</span>
+    <span class="n">active</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">existing_registration</span><span class="p">:</span>
+    <span class="n">messages</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Вы уже зарегистрированы на эту гонку&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;race_detail&#39;</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="_11">Уникальность регистрации<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>В базе данных есть ограничение, которое не позволяет одному водителю зарегистрироваться на одну гонку дважды:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">UniqueConstraint</span><span class="p">(</span>
+        <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;driver&#39;</span><span class="p">,</span> <span class="s1">&#39;race&#39;</span><span class="p">],</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;unique_driver_race_registration&#39;</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<p>Если кто-то попытается обойти проверку в коде, база данных выдаст ошибку.</p>
+<h3 id="_12">Отмена регистрации<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>Водитель может отменить свою регистрацию. При этом регистрация не удаляется, а помечается как неактивная:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">registration</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">registration</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</code></pre></div>
+
+<p>Это сохраняет историю регистраций.</p>
+<h2 id="_13">Заезды и результаты<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="_14">Создание заездов<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>Заезды создаются администратором через админ-панель. Один заезд относится к одной гонке.</p>
+<p>Типичная структура:</p>
+<ul>
+<li>Квалификация (5 кругов)</li>
+<li>Полуфинал (8 кругов)</li>
+<li>Финал (12 кругов)</li>
+</ul>
+<h3 id="_15">Добавление результатов<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>При добавлении результата водителя в заезде происходит важная проверка:</p>
+<p><strong>Водитель должен быть зарегистрирован на эту гонку!</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">heat</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="p">:</span>
+        <span class="n">is_registered</span> <span class="o">=</span> <span class="n">Registration</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+            <span class="n">driver</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="p">,</span>
+            <span class="n">race</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">heat</span><span class="o">.</span><span class="n">race</span><span class="p">,</span>
+            <span class="n">active</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_registered</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;Водитель </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">full_name</span><span class="si">}</span><span class="s1"> не зарегистрирован на гонку&#39;</span>
+            <span class="p">)</span>
+</code></pre></div>
+
+<p>Этот метод вызывается автоматически перед сохранением в базу:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>  <span class="c1"># Вызываем валидацию</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="_16">Уникальность результатов<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>Один водитель может иметь только один результат в одном заезде:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">UniqueConstraint</span><span class="p">(</span>
+        <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;heat&#39;</span><span class="p">,</span> <span class="s1">&#39;driver&#39;</span><span class="p">],</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;unique_heat_driver_result&#39;</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<h3 id="_17">Отображение результатов<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>На странице гонки результаты отображаются отсортированными по позиции:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="n">heat</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">select_related</span><span class="p">(</span><span class="s1">&#39;driver&#39;</span><span class="p">,</span> <span class="s1">&#39;driver__team&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="s1">&#39;finish_time_seconds&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Первые три места получают медали в интерфейсе.</p>
+<h2 id="_18">Комментарии<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<h3 id="_19">Добавление комментария<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>Только зарегистрированные пользователи с заполненным профилем могут добавлять комментарии.</p>
+<p><strong>Валидация рейтинга:</strong></p>
+<p>В форме проверяется, что рейтинг от 1 до 10:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">clean_rating</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">rating</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">rating</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span><span class="n">rating</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">rating</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;Рейтинг должен быть от 1 до 10.&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rating</span>
+</code></pre></div>
+
+<p>Также на уровне модели:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">rating</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveSmallIntegerField</span><span class="p">(</span>
+    <span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MinValueValidator</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">MaxValueValidator</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
+    <span class="n">verbose_name</span><span class="o">=</span><span class="s1">&#39;Рейтинг (1-10)&#39;</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<h3 id="_20">Редактирование и удаление<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>Пользователь может редактировать и удалять только свои комментарии. Это проверяется через миксин <code>OwnerRequiredMixin</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">OwnerRequiredMixin</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queryset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">queryset</span><span class="p">)</span>
+
+        <span class="c1"># Админы могут редактировать что угодно</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_staff</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">obj</span>
+
+        <span class="c1"># Для комментариев проверяем автора</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;author&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">author</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">PermissionDenied</span><span class="p">(</span><span class="s2">&quot;Вы не можете редактировать чужой комментарий&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Для регистраций проверяем водителя</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;driver&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">user</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">PermissionDenied</span><span class="p">(</span><span class="s2">&quot;Вы не можете редактировать чужую регистрацию&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">obj</span>
+</code></pre></div>
+
+<h2 id="_21">Права доступа<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<h3 id="loginrequiredmixin">LoginRequiredMixin<a class="headerlink" href="#loginrequiredmixin" title="Permanent link">&para;</a></h3>
+<p>Многие страницы доступны только авторизованным пользователям. Для этого используется миксин:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">RegistrationListView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">ListView</span><span class="p">):</span>
+    <span class="c1"># Если пользователь не авторизован, его перенаправит на страницу входа</span>
+    <span class="o">...</span>
+</code></pre></div>
+
+<h3 id="_22">Разделение прав админов и пользователей<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>В представлениях проверяется статус пользователя:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">is_admin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span> <span class="ow">and</span> <span class="p">(</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_staff</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Админы видят:</p>
+<ul>
+<li>Все регистрации (не только свои)</li>
+<li>Больше информации в списках</li>
+<li>Кнопки для редактирования чужих объектов</li>
+<li>Ссылку на админ-панель в меню</li>
+</ul>
+<h2 id="_23">Пагинация<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<p>Для длинных списков используется пагинация:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">django.core.paginator</span><span class="w"> </span><span class="kn">import</span> <span class="n">Paginator</span><span class="p">,</span> <span class="n">EmptyPage</span><span class="p">,</span> <span class="n">PageNotAnInteger</span>
+
+<span class="n">paginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">registrations</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># 6 объектов на страницу</span>
+<span class="n">page</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;page_participants&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">registrations_page</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">PageNotAnInteger</span><span class="p">:</span>
+    <span class="n">registrations_page</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">EmptyPage</span><span class="p">:</span>
+    <span class="n">registrations_page</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">paginator</span><span class="o">.</span><span class="n">num_pages</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Параметры поиска и сортировки сохраняются при переходе между страницами:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">query_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">if</span> <span class="s1">&#39;page&#39;</span> <span class="ow">in</span> <span class="n">query_params</span><span class="p">:</span>
+    <span class="n">query_params</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">)</span>
+<span class="n">context</span><span class="p">[</span><span class="s1">&#39;query_string&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">query_params</span><span class="o">.</span><span class="n">urlencode</span><span class="p">()</span>
+</code></pre></div>
+
+<h2 id="_24">Оптимизация запросов<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<p>Для уменьшения количества запросов к базе данных используются:</p>
+<h3 id="select_related">select_related<a class="headerlink" href="#select_related" title="Permanent link">&para;</a></h3>
+<p>Для связей ForeignKey и OneToOneField:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">registrations</span> <span class="o">=</span> <span class="n">Registration</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">select_related</span><span class="p">(</span><span class="s1">&#39;driver&#39;</span><span class="p">,</span> <span class="s1">&#39;driver__team&#39;</span><span class="p">,</span> <span class="s1">&#39;race&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Это загружает связанные объекты за один SQL запрос вместо множества.</p>
+<h3 id="prefetch_related">prefetch_related<a class="headerlink" href="#prefetch_related" title="Permanent link">&para;</a></h3>
+<p>Для обратных связей:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">heats</span> <span class="o">=</span> <span class="n">race</span><span class="o">.</span><span class="n">heats</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">prefetch_related</span><span class="p">(</span><span class="s1">&#39;results__driver__team&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="annotate">annotate<a class="headerlink" href="#annotate" title="Permanent link">&para;</a></h3>
+<p>Для подсчета связанных объектов:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">qs</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">qs</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+    <span class="n">_registrations_count</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s1">&#39;registrations&#39;</span><span class="p">,</span> <span class="n">distinct</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">_heats_count</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s1">&#39;heats&#39;</span><span class="p">,</span> <span class="n">distinct</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Это позволяет получить количество без дополнительных запросов.</p>
+<h2 id="_25">Сообщения пользователю<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<p>Для информирования пользователя о результатах действий используется <code>messages</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib</span><span class="w"> </span><span class="kn">import</span> <span class="n">messages</span>
+
+<span class="c1"># Успех</span>
+<span class="n">messages</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Профиль успешно обновлен&#39;</span><span class="p">)</span>
+
+<span class="c1"># Предупреждение</span>
+<span class="n">messages</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Заполните профиль перед регистрацией&#39;</span><span class="p">)</span>
+
+<span class="c1"># Информация</span>
+<span class="n">messages</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Ваша регистрация отменена&#39;</span><span class="p">)</span>
+
+<span class="c1"># Ошибка</span>
+<span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Произошла ошибка&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Сообщения отображаются в шаблоне <code>base.html</code> с помощью Bootstrap alerts.</p>
+<h2 id="_26">Итоги<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<p>Основные бизнес-правила проекта:</p>
+<ol>
+<li>Профиль должен быть заполнен для участия</li>
+<li>Один водитель - одна регистрация на гонку</li>
+<li>Результаты только для зарегистрированных водителей</li>
+<li>Один результат на водителя в заезде</li>
+<li>Пользователи редактируют только свои объекты</li>
+<li>Админы управляют всем</li>
+<li>Рейтинг от 1 до 10</li>
+<li>Видны только опубликованные гонки</li>
+</ol>
+<p>Все эти правила реализованы через проверки в представлениях, валидацию в моделях и формах, и ограничения в базе данных.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Скоблилова Виктория, @vviktoriask, 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
